@@ -15,6 +15,8 @@
 		3D7D70621C0397700090A82C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D7D70601C0397700090A82C /* LaunchScreen.storyboard */; };
 		3D7D706D1C0397700090A82C /* ReminderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7D706C1C0397700090A82C /* ReminderTests.m */; };
 		3D7D70781C0397700090A82C /* ReminderUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7D70771C0397700090A82C /* ReminderUITests.m */; };
+		3D7D70871C0397E60090A82C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7D70861C0397E60090A82C /* MapKit.framework */; };
+		3D7D70891C0398CE0090A82C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7D70881C0398CE0090A82C /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +41,8 @@
 		3D7D70531C0397700090A82C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3D7D70551C0397700090A82C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3D7D70561C0397700090A82C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3D7D70581C0397700090A82C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3D7D70591C0397700090A82C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3D7D70581C0397700090A82C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = Reminder/ViewController.h; sourceTree = "<group>"; };
+		3D7D70591C0397700090A82C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = Reminder/ViewController.m; sourceTree = "<group>"; };
 		3D7D705C1C0397700090A82C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3D7D705E1C0397700090A82C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D7D70611C0397700090A82C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +53,8 @@
 		3D7D70731C0397700090A82C /* ReminderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReminderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D7D70771C0397700090A82C /* ReminderUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReminderUITests.m; sourceTree = "<group>"; };
 		3D7D70791C0397700090A82C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D7D70861C0397E60090A82C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3D7D70881C0398CE0090A82C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D7D70891C0398CE0090A82C /* CoreLocation.framework in Frameworks */,
+				3D7D70871C0397E60090A82C /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +87,8 @@
 		3D7D70461C0397700090A82C = {
 			isa = PBXGroup;
 			children = (
+				3D7D705B1C0397700090A82C /* Main.storyboard */,
+				3D7D70851C0397CA0090A82C /* Controller */,
 				3D7D70511C0397700090A82C /* Reminder */,
 				3D7D706B1C0397700090A82C /* ReminderTests */,
 				3D7D70761C0397700090A82C /* ReminderUITests */,
@@ -103,12 +111,7 @@
 			children = (
 				3D7D70551C0397700090A82C /* AppDelegate.h */,
 				3D7D70561C0397700090A82C /* AppDelegate.m */,
-				3D7D70581C0397700090A82C /* ViewController.h */,
-				3D7D70591C0397700090A82C /* ViewController.m */,
-				3D7D705B1C0397700090A82C /* Main.storyboard */,
 				3D7D705E1C0397700090A82C /* Assets.xcassets */,
-				3D7D70601C0397700090A82C /* LaunchScreen.storyboard */,
-				3D7D70631C0397700090A82C /* Info.plist */,
 				3D7D70521C0397700090A82C /* Supporting Files */,
 			);
 			path = Reminder;
@@ -117,6 +120,10 @@
 		3D7D70521C0397700090A82C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3D7D70881C0398CE0090A82C /* CoreLocation.framework */,
+				3D7D70861C0397E60090A82C /* MapKit.framework */,
+				3D7D70601C0397700090A82C /* LaunchScreen.storyboard */,
+				3D7D70631C0397700090A82C /* Info.plist */,
 				3D7D70531C0397700090A82C /* main.m */,
 			);
 			name = "Supporting Files";
@@ -138,6 +145,15 @@
 				3D7D70791C0397700090A82C /* Info.plist */,
 			);
 			path = ReminderUITests;
+			sourceTree = "<group>";
+		};
+		3D7D70851C0397CA0090A82C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3D7D70581C0397700090A82C /* ViewController.h */,
+				3D7D70591C0397700090A82C /* ViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,6 +223,11 @@
 				TargetAttributes = {
 					3D7D704E1C0397700090A82C = {
 						CreatedOnToolsVersion = 7.1;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					3D7D70671C0397700090A82C = {
 						CreatedOnToolsVersion = 7.1;
@@ -314,6 +335,7 @@
 				3D7D705C1C0397700090A82C /* Base */,
 			);
 			name = Main.storyboard;
+			path = Reminder;
 			sourceTree = "<group>";
 		};
 		3D7D70601C0397700090A82C /* LaunchScreen.storyboard */ = {
