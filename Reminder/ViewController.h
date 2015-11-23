@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-@import MapKit
-@import CoreLocation
+#import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<CLLocationManagerDelegate, MKMapViewDelegate, MKAnnotation>
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
+
 
 
 @end

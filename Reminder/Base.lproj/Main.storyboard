@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CHV-8A-ZVz">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
@@ -17,32 +17,96 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="zSy-cf-MMg">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="zSy-cf-MMg">
                                 <rect key="frame" x="61" y="115" width="479" height="427"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="P3a-UV-fb1"/>
+                                </connections>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZOv-dc-C6V">
-                                <rect key="frame" x="125" y="562" width="70" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZOv-dc-C6V">
+                                <rect key="frame" x="61" y="562" width="70" height="30"/>
                                 <state key="normal" title="Location 1"/>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yD3-NL-zAb"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Um-Iy-xQ1">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Um-Iy-xQ1">
                                 <rect key="frame" x="264" y="562" width="72" height="30"/>
                                 <state key="normal" title="Location 2"/>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OlS-nZ-AuE"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ats-SM-9AW">
-                                <rect key="frame" x="399" y="562" width="72" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ats-SM-9AW">
+                                <rect key="frame" x="468" y="562" width="72" height="30"/>
                                 <state key="normal" title="Location 3"/>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sfg-9t-x3z"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zSy-cf-MMg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="95" id="2vb-rC-dbQ"/>
+                            <constraint firstItem="zSy-cf-MMg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="61" id="Bdw-s2-lg4"/>
+                            <constraint firstItem="ZOv-dc-C6V" firstAttribute="top" secondItem="zSy-cf-MMg" secondAttribute="bottom" constant="20" id="DVk-l4-4qs"/>
+                            <constraint firstItem="1Um-Iy-xQ1" firstAttribute="centerX" secondItem="zSy-cf-MMg" secondAttribute="centerX" id="GTg-Mh-OIv"/>
+                            <constraint firstAttribute="trailing" secondItem="zSy-cf-MMg" secondAttribute="trailing" constant="60" id="b8C-nH-ygb"/>
+                            <constraint firstItem="ats-SM-9AW" firstAttribute="top" secondItem="zSy-cf-MMg" secondAttribute="bottom" constant="20" id="cNX-Fy-X3m"/>
+                            <constraint firstItem="ZOv-dc-C6V" firstAttribute="leading" secondItem="zSy-cf-MMg" secondAttribute="leading" id="d8a-3e-H8j"/>
+                            <constraint firstItem="ats-SM-9AW" firstAttribute="trailing" secondItem="zSy-cf-MMg" secondAttribute="trailing" id="eCC-au-WZy"/>
+                            <constraint firstItem="1Um-Iy-xQ1" firstAttribute="top" secondItem="zSy-cf-MMg" secondAttribute="bottom" constant="20" id="wvE-5Z-lC2"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="onb-uW-AL9">
+                        <barButtonItem key="leftBarButtonItem" title="Settings" id="BwW-RA-g9a">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="goToSettings:" destination="BYZ-38-t0r" id="ePu-6Z-ShT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="locationOne" destination="ZOv-dc-C6V" id="pBx-Xp-T7S"/>
-                        <outlet property="locationThree" destination="ats-SM-9AW" id="Zng-vh-b8Q"/>
-                        <outlet property="locationTwo" destination="1Um-Iy-xQ1" id="5v7-KN-7sS"/>
-                        <outlet property="map" destination="zSy-cf-MMg" id="feK-Wv-Nwd"/>
+                        <outlet property="mapView" destination="zSy-cf-MMg" id="Tgh-Io-wXi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1117" y="364"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="vpl-xk-l9t">
+            <objects>
+                <viewController id="JTA-8D-W1W" customClass="DetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="I4s-v4-nWq"/>
+                        <viewControllerLayoutGuide type="bottom" id="mbp-xG-6qi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PCQ-OM-eaP">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jhz-9H-EW9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1801" y="364"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qRB-pp-PaN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CHV-8A-ZVz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rSD-ZP-fse">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="1kn-c1-lbJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mfQ-os-v60" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="305" y="364"/>
         </scene>
