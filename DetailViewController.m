@@ -20,12 +20,6 @@
     self.annotationTitle = @"Yo";
 }
 
-
--(void)setAnnotation:(AnnotationViewController *)annotation {
-    annotation = annotation;
-
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);

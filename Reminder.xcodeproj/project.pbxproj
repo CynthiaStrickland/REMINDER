@@ -36,7 +36,6 @@
 		3D7D70B11C03CBA90090A82C /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7D70AB1C03CBA90090A82C /* ParseUI.framework */; };
 		3D7D70B21C03CBA90090A82C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7D70AC1C03CBA90090A82C /* Parse.framework */; };
 		3D7D70B41C03CEA40090A82C /* ParseKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7D70B31C03CEA40090A82C /* ParseKey.m */; };
-		3D7D70B71C03D9200090A82C /* AnnotationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7D70B61C03D91F0090A82C /* AnnotationViewController.m */; };
 		3D7D70B91C041B920090A82C /* prince.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D7D70B81C041B920090A82C /* prince.png */; };
 		3D7D70FC1C04E0640090A82C /* LocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7D70FB1C04E0640090A82C /* LocationController.m */; };
 /* End PBXBuildFile section */
@@ -97,8 +96,6 @@
 		3D7D70AB1C03CBA90090A82C /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		3D7D70AC1C03CBA90090A82C /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		3D7D70B31C03CEA40090A82C /* ParseKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseKey.m; sourceTree = "<group>"; };
-		3D7D70B51C03D91F0090A82C /* AnnotationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnotationViewController.h; sourceTree = "<group>"; };
-		3D7D70B61C03D91F0090A82C /* AnnotationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnotationViewController.m; sourceTree = "<group>"; };
 		3D7D70B81C041B920090A82C /* prince.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prince.png; sourceTree = "<group>"; };
 		3D7D70FA1C04E0640090A82C /* LocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationController.h; sourceTree = "<group>"; };
 		3D7D70FB1C04E0640090A82C /* LocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationController.m; sourceTree = "<group>"; };
@@ -216,8 +213,6 @@
 			children = (
 				3D7D70FA1C04E0640090A82C /* LocationController.h */,
 				3D7D70FB1C04E0640090A82C /* LocationController.m */,
-				3D7D70B51C03D91F0090A82C /* AnnotationViewController.h */,
-				3D7D70B61C03D91F0090A82C /* AnnotationViewController.m */,
 				3D7D70581C0397700090A82C /* ViewController.h */,
 				3D7D70591C0397700090A82C /* ViewController.m */,
 				3D7D708D1C03C9F40090A82C /* DetailViewController.h */,
@@ -400,7 +395,6 @@
 				3D7D705A1C0397700090A82C /* ViewController.m in Sources */,
 				3D7D70571C0397700090A82C /* AppDelegate.m in Sources */,
 				3D7D70541C0397700090A82C /* main.m in Sources */,
-				3D7D70B71C03D9200090A82C /* AnnotationViewController.m in Sources */,
 				3D7D70B41C03CEA40090A82C /* ParseKey.m in Sources */,
 				3D7D70FC1C04E0640090A82C /* LocationController.m in Sources */,
 				3D7D708F1C03C9F40090A82C /* DetailViewController.m in Sources */,

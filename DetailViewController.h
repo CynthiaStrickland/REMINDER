@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "ViewController.h"
-#import "AnnotationViewController.h"
+
 @import CoreLocation;
 
 @interface DetailViewController : UIViewController
