@@ -1,5 +1,5 @@
 //
-//  DetailViewController.h
+//  AnnotationViewController.h
 //  Reminder
 //
 //  Created by Cynthia Whitlatch on 11/23/15.
@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-#import "ViewController.h"
-#import "AnnotationViewController.h"
 
-@interface DetailViewController : UIViewController
 
+@interface AnnotationViewController : UIViewController<MKAnnotation>
+
+-(id)initWithCoordinate:(CLLocationCoordinate2D)coordinate;
 
 @end
