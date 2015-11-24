@@ -12,7 +12,6 @@
 
 @interface ViewController : UIViewController<CLLocationManagerDelegate, MKMapViewDelegate, MKAnnotation>
 
-@property (strong, nonatomic) CLLocationManager *locationManager;
 
 
 

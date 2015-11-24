@@ -38,6 +38,7 @@
 		3D7D70B41C03CEA40090A82C /* ParseKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7D70B31C03CEA40090A82C /* ParseKey.m */; };
 		3D7D70B71C03D9200090A82C /* AnnotationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7D70B61C03D91F0090A82C /* AnnotationViewController.m */; };
 		3D7D70B91C041B920090A82C /* prince.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D7D70B81C041B920090A82C /* prince.png */; };
+		3D7D70FC1C04E0640090A82C /* LocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7D70FB1C04E0640090A82C /* LocationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,8 @@
 		3D7D70B51C03D91F0090A82C /* AnnotationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnotationViewController.h; sourceTree = "<group>"; };
 		3D7D70B61C03D91F0090A82C /* AnnotationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnotationViewController.m; sourceTree = "<group>"; };
 		3D7D70B81C041B920090A82C /* prince.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prince.png; sourceTree = "<group>"; };
+		3D7D70FA1C04E0640090A82C /* LocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationController.h; sourceTree = "<group>"; };
+		3D7D70FB1C04E0640090A82C /* LocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,7 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				3D7D70A61C03CB760090A82C /* FRAMEWORKS */,
-				3D7D705B1C0397700090A82C /* Main.storyboard */,
+				3D7D70F91C04E0080090A82C /* View */,
 				3D7D70851C0397CA0090A82C /* Controller */,
 				3D7D70511C0397700090A82C /* Reminder */,
 				3D7D706B1C0397700090A82C /* ReminderTests */,
@@ -184,7 +187,6 @@
 		3D7D70521C0397700090A82C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				3D7D70601C0397700090A82C /* LaunchScreen.storyboard */,
 				3D7D70631C0397700090A82C /* Info.plist */,
 				3D7D70531C0397700090A82C /* main.m */,
 			);
@@ -212,6 +214,8 @@
 		3D7D70851C0397CA0090A82C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3D7D70FA1C04E0640090A82C /* LocationController.h */,
+				3D7D70FB1C04E0640090A82C /* LocationController.m */,
 				3D7D70B51C03D91F0090A82C /* AnnotationViewController.h */,
 				3D7D70B61C03D91F0090A82C /* AnnotationViewController.m */,
 				3D7D70581C0397700090A82C /* ViewController.h */,
@@ -246,6 +250,15 @@
 				3D7D70901C03CB1E0090A82C /* AudioToolbox.framework */,
 			);
 			name = FRAMEWORKS;
+			sourceTree = "<group>";
+		};
+		3D7D70F91C04E0080090A82C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3D7D705B1C0397700090A82C /* Main.storyboard */,
+				3D7D70601C0397700090A82C /* LaunchScreen.storyboard */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -389,6 +402,7 @@
 				3D7D70541C0397700090A82C /* main.m in Sources */,
 				3D7D70B71C03D9200090A82C /* AnnotationViewController.m in Sources */,
 				3D7D70B41C03CEA40090A82C /* ParseKey.m in Sources */,
+				3D7D70FC1C04E0640090A82C /* LocationController.m in Sources */,
 				3D7D708F1C03C9F40090A82C /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,6 +454,7 @@
 				3D7D70611C0397700090A82C /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = Reminder;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -30,6 +30,7 @@
     [self requestPermissions];
     
     MKPointAnnotation *myAnnotation = [[MKPointAnnotation alloc]init];
+    
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     
@@ -81,6 +82,8 @@
     annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     
     return annotationView;
+    
+    
 }
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
@@ -96,9 +99,27 @@
 
     }
 
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(MKAnnotationView *)sender
+//{
+//    if ([segue.identifier isEqualToString:@"showPinDetails"])
+//    {
+//        DetailViewController *destinationViewController = segue.destinationViewController;
+//        destinationViewController.receivedLocation = sender.annotation;
+//    } else {
+//        NSLog(@"PFS:something else");
+//    }
+//}
+
         //Changes user location as user moves
 - (void)userLocation:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
     mapView.centerCoordinate = userLocation.location.coordinate;
+    
+    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+    point.coordinate = userLocation.coordinate;
+    point.title = @"Where am I?";
+    point.subtitle = @"I'm here!!!";
+    
+    [self.mapView addAnnotation:point];
 }
 
 
