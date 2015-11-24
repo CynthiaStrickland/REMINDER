@@ -69,13 +69,14 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="zSy-cf-MMg" id="Tgh-Io-wXi"/>
-                        <segue destination="JTA-8D-W1W" kind="show" identifier="showPinDetails" id="5oO-w9-f59"/>
+                        <segue destination="JTA-8D-W1W" kind="show" identifier="DetailViewController" id="5oO-w9-f59"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="SKY-ok-24Z">
                     <connections>
-                        <action selector="handleLongPressGesture:" destination="BYZ-38-t0r" id="lDU-rt-YWy"/>
+                        <action selector="handleLongPressGesture:" destination="BYZ-38-t0r" id="o0S-Vp-w6g"/>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="mTy-sy-q3Q"/>
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>

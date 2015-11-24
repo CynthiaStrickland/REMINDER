@@ -9,7 +9,7 @@
 @import Foundation;
 @import CoreLocation;
 
-@protocol locationControllerDelegate <NSObject>
+@protocol LocationControllerDelegate <NSObject>
 
 @optional
 - (void)locationControllerDidUpdateLocation:(CLLocation *)location;
@@ -18,12 +18,15 @@
 
 @interface LocationController: NSObject
 
-@property (strong, nonatomic) CLLocationManager *locaitonManager;
+@property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLLocation *location;
 
 @property (weak, nonatomic) id delegate;
 
 + (LocationController *)sharedController;
+
+- (void)start;
+- (void)stop;
 
 
 

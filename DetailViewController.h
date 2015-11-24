@@ -10,8 +10,11 @@
 #import <MapKit/MapKit.h>
 #import "ViewController.h"
 #import "AnnotationViewController.h"
+@import CoreLocation;
 
 @interface DetailViewController : UIViewController
 
+@property (copy, nonatomic) NSString *annotationTitle;
+@property (nonatomic) CLLocationCoordinate2D coordinate;
 
 @end

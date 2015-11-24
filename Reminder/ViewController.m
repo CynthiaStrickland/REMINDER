@@ -5,20 +5,17 @@
 //  Created by Cynthia Whitlatch on 11/23/15.
 //  Copyright © 2015 Cynthia Whitlatch. All rights reserved.
 //
-//
-//Using core location, display the users location on the map
-//Add a long press gesture to the map view
-//On long press,  add an annotation onto the map view, which has a callout with an accessory button
-//Upon pressing the accessory button, segue to a AddReminderDetailViewController
 
+#import <Foundation/Foundation.h>
 #import "AnnotationViewController.h"
 #import "ViewController.h"
 #import <Parse/Parse.h>
+#import "LocationController.h"
+#import "DetailViewController.h"
 
-@interface ViewController ()
+@interface ViewController () <LocationControllerDelegate, MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
-
 
 @end
 
@@ -27,23 +24,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self requestPermissions];
     
     MKPointAnnotation *myAnnotation = [[MKPointAnnotation alloc]init];
     
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self;
-    
-    [self.locationManager requestWhenInUseAuthorization];
-    
-    [self.locationManager startUpdatingLocation];
     _mapView.delegate = self;
     
     self.mapView.showsUserLocation = YES;
     self.mapView.showsPointsOfInterest = YES;
-    
     [self.mapView.layer setCornerRadius:20.0];
-    [self.mapView setShowsUserLocation:YES];
     
     PFObject *testObject = [PFObject objectWithClassName:@"Location"];
     testObject[@"foo"] = @"bar";
@@ -56,61 +44,81 @@
     myAnnotation.coordinate = CLLocationCoordinate2DMake(47.606209, -122.332071);
     [self.mapView addAnnotation:myAnnotation];
 }
-
 - (IBAction)handleLongPressGesture:(UILongPressGestureRecognizer *)sender {
-    if (sender.state != UIGestureRecognizerStateBegan)
+    if (sender.state == UIGestureRecognizerStateBegan)
         return;
     
     CGPoint point = [sender locationInView:self.mapView];
-    CLLocationCoordinate2D coordinates = [self.mapView
+    CLLocationCoordinate2D coordinate = [self.mapView
                                           convertPoint:point
                                           toCoordinateFromView:self.mapView];
     
-    AnnotationViewController *annotation = [[AnnotationViewController alloc] initWithCoordinate:coordinates];
+    MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
+    annotation.coordinate = coordinate;
+    annotation.title = @"Touch Location";
+    annotation.subtitle = @"Get Pizza";
+    
     [self.mapView removeAnnotation:annotation];
     [self.mapView addAnnotation:annotation];
     
 }
 
-- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
-{
-    if ([annotation isKindOfClass:[MKUserLocation class]])
-        return nil;
+#pragma mark - LocationControllerDelegate
+
+- (void)locationControllerDidUpdateLocation:(CLLocation *)location {
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(location.coordinate, 500.0, 500.0);
+    [self setRegion:region];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
-    MKAnnotationView *annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"showPinDetails"];
+    [[LocationController sharedController]start];
+    [[LocationController sharedController]setDelegate:self];
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [[LocationController sharedController]stop];
+
+}
+
+#pragma mark - MKMapViewDelegate
+     
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
+
+    if ([annotation isKindOfClass:[MKUserLocation class]]) { return nil; }
+    return nil;
+    MKAnnotationView *annotationView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier: @"AnnotationView"];
+    annotationView.annotation = annotation;
+    
+    if (!annotationView) {
+        annotationView = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"AnnotationView"];
+    }
     annotationView.canShowCallout = YES;
-    annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    UIButton *rightCallout = [UIButton buttonWithType: UIButtonTypeDetailDisclosure];
+    annotationView.rightCalloutAccessoryView = rightCallout;
+    [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     
     return annotationView;
     
-    
 }
 
-- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
-{
-
-}
-
--(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
-//    if ([view.annotation isKindOfClass:[MKUserLocation class]]) {
-//        selectedAnnotation = view.annotation;
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id) sender {
     
-        [self performSegueWithIdentifier:@"showPinDetails" sender:view];
-
+    if ([segue.identifier isEqualToString:@"DetailViewController"]) {
+        if ([sender isKindOfClass:[MKAnnotationView class]]) {
+            MKAnnotationView *annotationView = (MKAnnotationView *)sender;
+            DetailViewController *detailViewController = (DetailViewController *)segue.destinationViewController;
+            detailViewController.annotationTitle = annotationView.annotation.title;
+            detailViewController.coordinate = annotationView.annotation.coordinate;
+        }
     }
+}
 
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(MKAnnotationView *)sender
-//{
-//    if ([segue.identifier isEqualToString:@"showPinDetails"])
-//    {
-//        DetailViewController *destinationViewController = segue.destinationViewController;
-//        destinationViewController.receivedLocation = sender.annotation;
-//    } else {
-//        NSLog(@"PFS:something else");
-//    }
-//}
-
-        //Changes user location as user moves
+            //CHANGE USER LOCATION AS USER MOVES
 - (void)userLocation:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
     mapView.centerCoordinate = userLocation.location.coordinate;
     
@@ -150,11 +158,6 @@
     
 }
 
-- (void)requestPermissions {
-    [self setLocationManager:[[CLLocationManager alloc]init]];
-    [self.locationManager requestAlwaysAuthorization];
-    
-}
 
 - (IBAction)buttonPressed:(id)sender {
     if ([sender isKindOfClass:[UIButton class]]) {
@@ -162,28 +165,33 @@
         NSString *buttonTitle = button.titleLabel.text;
         
         if ([buttonTitle isEqualToString: @"Location 1"]) {
-            CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(47.606209, -122.332071);
-            MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinate, 500.0, 500.0);
+            CLLocationCoordinate2D coordinates = CLLocationCoordinate2DMake(47.606209, -122.332071);
+            MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinates, 500.0, 500.0);
             [self.mapView setRegion:region animated:YES];
         
         }
         
         if ([buttonTitle isEqualToString: @"Location 2"]) {
-            CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(47.593307, -122.332165);
-            MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinate, 500.0, 500.0);
+            CLLocationCoordinate2D coordinates = CLLocationCoordinate2DMake(47.593307, -122.332165);
+            MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinates, 500.0, 500.0);
             [self.mapView setRegion:region animated:YES];
         }
         
         if ([buttonTitle isEqualToString: @"Location 3"]) {
-            CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(47.620423, -122.349355);
-            MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinate, 500.0, 500.0);
+            CLLocationCoordinate2D coordinates = CLLocationCoordinate2DMake(47.620423, -122.349355);
+            MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinates, 500.0, 500.0);
             [self.mapView setRegion:region animated:YES];
         }
     }
 }
 
-@end
+//     - (void)locationManager:(CLLocationManager *)manager didUpdateLocation:(NSArray<CLLocation *> *)location {
+//         MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(location.coordinate, 500.0 ,500.0);
+//         [self setRegionForCoordinate:region];
+//     }
 
+@end
+        
 
 
 //-(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
@@ -212,5 +220,5 @@
 //        }
 //        return nil;
 //    }
-//}
-    
+
+
