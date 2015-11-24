@@ -71,9 +71,6 @@
 
 - (IBAction)handleLongPressGesture:(UILongPressGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateBegan) {
-        return;
-
-//        return;
     
     CGPoint point = [sender locationInView:self.mapView];
     CLLocationCoordinate2D touchCoordinate = [self.mapView
@@ -86,9 +83,7 @@
     pin.subtitle = @"Find Pizza";
     
     [self.mapView addAnnotation:pin];
-//    [self.mapView removeAnnotation:pin];
         return;
-        
     }
 }
 

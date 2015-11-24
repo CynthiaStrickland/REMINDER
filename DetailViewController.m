@@ -10,6 +10,8 @@
 
 @interface DetailViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *annotationLabel;
+
 @end
 
 @implementation DetailViewController
@@ -18,6 +20,7 @@
     [super viewDidLoad];
     
     self.annotationTitle = @"Yo";
+    self.annotationLabel.text = _annotationTitle;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
