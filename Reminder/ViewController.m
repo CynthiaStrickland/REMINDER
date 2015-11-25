@@ -9,6 +9,7 @@
 #import "LocationController.h"
 #import "DetailViewController.h"
 
+
 #import <Parse/Parse.h>
 
 @interface ViewController () <LocationControllerDelegate, MKMapViewDelegate>
@@ -175,6 +176,17 @@
         }
     }
 }
+
+//- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view
+//calloutAccessoryControlTapped:(UIControl *)control
+//{
+//    MyAnnotation *annotation = view.annotation;
+//    DetailViewController *detail = [[DetailViewController alloc] initWithNibName:nil bundle:nil];
+//    detail.annotationLabel.text = annotation.annotationLabel;
+//    
+//    [self.navigationController pushViewController:detail animated:YES];
+//}
+
 
 @end
         
