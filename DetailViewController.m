@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *annotationLabel;
 
+
 @end
 
 @implementation DetailViewController
@@ -21,6 +22,12 @@
     
     self.annotationTitle = @"Yo";
     self.annotationLabel.text = _annotationTitle;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.userNameTextField becomeFirstResponder];
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

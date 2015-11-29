@@ -9,12 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "LocationController.h"
-#import <CoreLocation/CoreLocation.h>
+@import CoreLocation;
+@import Parse;
+@import ParseUI;
+@import MapKit;
 
-@interface ViewController : UIViewController<CLLocationManagerDelegate, MKMapViewDelegate, MKAnnotation>
-
-
-
+@interface ViewController : UIViewController<CLLocationManagerDelegate, MKMapViewDelegate, MKAnnotation, PFLogInViewControllerDelegate>
 
 @end
 

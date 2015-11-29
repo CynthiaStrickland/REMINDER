@@ -10,9 +10,7 @@
 #import "DetailViewController.h"
 
 
-#import <Parse/Parse.h>
-
-@interface ViewController () <LocationControllerDelegate, MKMapViewDelegate>
+@interface ViewController () <LocationControllerDelegate, MKMapViewDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
@@ -31,6 +29,8 @@
     [self.mapView setDelegate:self];
     [self.mapView setShowsUserLocation:YES];
     [self.mapView.layer setCornerRadius:20.0];
+    
+    [self.login];
     
     PFObject *testObject = [PFObject objectWithClassName:@"Location"];
     testObject[@"foo"] = @"bar";
@@ -113,7 +113,7 @@
 
     }
     
-    annotationView.canShowCallout = true;
+    annotationView.canShowCallout = YES;
     UIButton *rightCallout = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     annotationView.rightCalloutAccessoryView = rightCallout;
     
@@ -146,6 +146,8 @@
     [self.mapView addAnnotation:point];
 }
 
+
+
 - (IBAction)goToSettings:(id)sender {
     NSURL *settingsURL = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
     [[UIApplication sharedApplication]openURL:settingsURL];
@@ -177,19 +179,60 @@
     }
 }
 
+#pragma mark - PARSE
+
+- (void) setUpAdditionalUI {
+    UIBarButtonItem *signoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStylePlain target:self action:@selector(logout)];
+    
+    self.navigationItem.leftBarButtonItem = signoutButton;
+}
+
+- (void) login {
+    
+    if (![PFUser currentUser]) {
+        PFLogInViewController *loginViewController = [[PFLogInViewController alloc] init];
+        loginViewController.delegate = self;
+//        loginViewController.signUpController.delegate = self;
+        
+        
+        [self presentViewController:loginViewController animated:YES completion:nil];
+        
+    } else {
+        
+        [self setUpAdditionalUI];
+    }
+}
+
+- (void) logout {
+    [PFUser logout];
+    [self login];    
+}
+
+#pragma mark - PFLoginViewControllerDelegate
+
+- (void)logInViewController:(PFLogInViewController *)loginController didLogInUser:(PFUser *)user {
+    
+        [self dismissViewControllerAnimated:YES completion:nil];
+        [self setUpAdditionalUI];
+    }
+
+- (void)signInViewController:(PFLogInViewController *)loginController didLogInUser:(PFUser *)user {
+    
+        [self dismissViewControllerAnimated:YES completion:nil];
+        [self setUpAdditionalUI];
+    }
+@end
+
+
+
 //- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view
 //calloutAccessoryControlTapped:(UIControl *)control
 //{
 //    MyAnnotation *annotation = view.annotation;
 //    DetailViewController *detail = [[DetailViewController alloc] initWithNibName:nil bundle:nil];
 //    detail.annotationLabel.text = annotation.annotationLabel;
-//    
+//
 //    [self.navigationController pushViewController:detail animated:YES];
 //}
-
-
-@end
-        
-
 
 

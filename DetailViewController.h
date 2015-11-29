@@ -6,10 +6,9 @@
 //  Copyright © 2015 Cynthia Whitlatch. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <MapKit/MapKit.h>
 #import "ViewController.h"
-
+@import MapKit;
+@import UIKit;
 @import CoreLocation;
 
 @interface DetailViewController : UIViewController

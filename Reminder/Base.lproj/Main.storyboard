@@ -147,7 +147,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="zSy-cf-MMg" id="Tgh-Io-wXi"/>
-                        <segue destination="JTA-8D-W1W" kind="show" identifier="DetailViewController" id="5oO-w9-f59"/>
+                        <segue destination="hcP-29-OQK" kind="show" id="CZT-x4-AaI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

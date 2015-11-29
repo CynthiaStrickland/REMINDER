@@ -56,6 +56,7 @@
 		3D7D71291C0522780090A82C /* Twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D7D71181C0522780090A82C /* Twitter.png */; };
 		3D7D712A1C0522780090A82C /* TwitterDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D7D71191C0522780090A82C /* TwitterDown.png */; };
 		3D7D712E1C0525E80090A82C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7D712D1C0525E80090A82C /* LoginViewController.m */; };
+		3D7D71311C0648170090A82C /* Reminder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7D71301C0648170090A82C /* Reminder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +137,8 @@
 		3D7D71191C0522780090A82C /* TwitterDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TwitterDown.png; sourceTree = "<group>"; };
 		3D7D712C1C0525E80090A82C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		3D7D712D1C0525E80090A82C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		3D7D712F1C0648170090A82C /* Reminder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reminder.h; sourceTree = "<group>"; };
+		3D7D71301C0648170090A82C /* Reminder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reminder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,6 +260,8 @@
 				3D7D708E1C03C9F40090A82C /* DetailViewController.m */,
 				3D7D712C1C0525E80090A82C /* LoginViewController.h */,
 				3D7D712D1C0525E80090A82C /* LoginViewController.m */,
+				3D7D712F1C0648170090A82C /* Reminder.h */,
+				3D7D71301C0648170090A82C /* Reminder.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -476,6 +481,7 @@
 				3D7D705A1C0397700090A82C /* ViewController.m in Sources */,
 				3D7D70571C0397700090A82C /* AppDelegate.m in Sources */,
 				3D7D70541C0397700090A82C /* main.m in Sources */,
+				3D7D71311C0648170090A82C /* Reminder.m in Sources */,
 				3D7D70B41C03CEA40090A82C /* ParseKey.m in Sources */,
 				3D7D712E1C0525E80090A82C /* LoginViewController.m in Sources */,
 				3D7D70FC1C04E0640090A82C /* LocationController.m in Sources */,
