@@ -32,9 +32,9 @@
     [self.mapView setShowsUserLocation:YES];
     [self.mapView.layer setCornerRadius:20.0];
     
-    PFObject *testObject = [PFObject objectWithClassName:@"Location"];
-    testObject[@"foo"] = @"bar";
-    [testObject saveInBackground];
+//    PFObject *testObject = [PFObject objectWithClassName:@"Location"];
+//    testObject[@"foo"] = @"bar";
+//    [testObject saveInBackground];
     
     UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressGesture:)];
     longPressGesture.minimumPressDuration = 1.0;
@@ -134,7 +134,7 @@
     [aMapView setRegion:region animated:YES];
 }
 
-//CHANGE USER LOCATION AS USER MOVES
+                    //CHANGE USER LOCATION AS USER MOVES
 - (void)userLocation:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
     mapView.centerCoordinate = userLocation.location.coordinate;
     
@@ -176,17 +176,6 @@
         }
     }
 }
-
-//- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view
-//calloutAccessoryControlTapped:(UIControl *)control
-//{
-//    MyAnnotation *annotation = view.annotation;
-//    DetailViewController *detail = [[DetailViewController alloc] initWithNibName:nil bundle:nil];
-//    detail.annotationLabel.text = annotation.annotationLabel;
-//    
-//    [self.navigationController pushViewController:detail animated:YES];
-//}
-
 
 @end
         

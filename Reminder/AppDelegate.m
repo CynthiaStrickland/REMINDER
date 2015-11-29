@@ -18,21 +18,23 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-        [Parse enableLocalDatastore];
-        [Parse setApplicationId:@"yB4G0zMrtDZTHJBvmOmWmKK9SW2IwqomKgp6gWe5" clientKey:@"avPsqatN5PUHbQtXJ3rskFQiFzmR6jLN19L8ZcmI"];
-        
-        [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-    
+//        [Parse enableLocalDatastore];
+//        [Parse setApplicationId:@"yB4G0zMrtDZTHJBvmOmWmKK9SW2IwqomKgp6gWe5" clientKey:@"avPsqatN5PUHbQtXJ3rskFQiFzmR6jLN19L8ZcmI"];
+//        
+//        [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+//    
+//    return YES;
+//}
+//
+//
+//
+//    [[PFUser logInWithUsernameInBackground:@"myname" password:@"mypass" block:^(PFUser *user, NSError *error) {
+//            if (user) {
+//            } else {
+//        }
+//    }];
+//};
     return YES;
+    
 }
-
-
-
-    [PFUser logInWithUsernameInBackground:@"myname" password:@"mypass" block:^(PFUser *user, NSError *error) {
-            if (user) {
-            } else {
-        }
-    }];
-};
-
 @end

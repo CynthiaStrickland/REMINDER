@@ -19,7 +19,6 @@
 @implementation LoginViewController
 
 - (IBAction)passwordTextField:(UITextField *)sender {
-    NSString *passwordText = self.passwordTextField.text;
     
 }
 
@@ -54,15 +53,13 @@
     
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
-        } else {   NSString *errorString = [error userInfo][@"error"];
+        } else {   
         }
     }];
-
-NSDictionary
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.textView.delegate = self;
 
 }
 

@@ -95,28 +95,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="zSy-cf-MMg">
-                                <rect key="frame" x="61" y="115" width="479" height="427"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="zSy-cf-MMg">
+                                <rect key="frame" x="61" y="159" width="479" height="383"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="P3a-UV-fb1"/>
                                 </connections>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZOv-dc-C6V">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZOv-dc-C6V">
                                 <rect key="frame" x="61" y="562" width="70" height="30"/>
                                 <state key="normal" title="Location 1"/>
                                 <connections>
                                     <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yD3-NL-zAb"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Um-Iy-xQ1">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Um-Iy-xQ1">
                                 <rect key="frame" x="264" y="562" width="72" height="30"/>
                                 <state key="normal" title="Location 2"/>
                                 <connections>
                                     <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OlS-nZ-AuE"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ats-SM-9AW">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ats-SM-9AW">
                                 <rect key="frame" x="468" y="562" width="72" height="30"/>
                                 <state key="normal" title="Location 3"/>
                                 <connections>
@@ -130,6 +130,7 @@
                             <constraint firstItem="zSy-cf-MMg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="61" id="Bdw-s2-lg4"/>
                             <constraint firstItem="ZOv-dc-C6V" firstAttribute="top" secondItem="zSy-cf-MMg" secondAttribute="bottom" constant="20" id="DVk-l4-4qs"/>
                             <constraint firstItem="1Um-Iy-xQ1" firstAttribute="centerX" secondItem="zSy-cf-MMg" secondAttribute="centerX" id="GTg-Mh-OIv"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZOv-dc-C6V" secondAttribute="bottom" constant="8" symbolic="YES" id="Hyq-Lt-d3Q"/>
                             <constraint firstAttribute="trailing" secondItem="zSy-cf-MMg" secondAttribute="trailing" constant="60" id="b8C-nH-ygb"/>
                             <constraint firstItem="ats-SM-9AW" firstAttribute="top" secondItem="zSy-cf-MMg" secondAttribute="bottom" constant="20" id="cNX-Fy-X3m"/>
                             <constraint firstItem="ZOv-dc-C6V" firstAttribute="leading" secondItem="zSy-cf-MMg" secondAttribute="leading" id="d8a-3e-H8j"/>
