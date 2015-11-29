@@ -6,13 +6,13 @@
 //  Copyright © 2015 Cynthia Whitlatch. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <MapKit/MapKit.h>
-#import <CoreLocation/CoreLocation.h>
+@import UIKit;
+@import MapKit;
+@import CoreLocation;
+#import "LocationController.h"
 
 @interface ViewController : UIViewController<CLLocationManagerDelegate, MKMapViewDelegate, MKAnnotation>
 
-@property (strong, nonatomic) CLLocationManager *locationManager;
 
 
 

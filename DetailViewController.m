@@ -10,18 +10,17 @@
 
 @interface DetailViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *annotationLabel;
+
 @end
 
 @implementation DetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-}
-
-
--(void)setAnnotation:(AnnotationViewController *)annotation {
-    annotation = annotation;
-
+    
+    self.annotationTitle = @"Yo";
+    self.annotationLabel.text = _annotationTitle;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
