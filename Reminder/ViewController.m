@@ -8,9 +8,8 @@
 #import "ViewController.h"
 #import "LocationController.h"
 #import "DetailViewController.h"
-
-
-#import <Parse/Parse.h>
+@import Parse;
+@import ParseUI;
 
 @interface ViewController () <LocationControllerDelegate, MKMapViewDelegate>
 

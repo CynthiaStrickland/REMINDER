@@ -6,8 +6,8 @@
 //  Copyright © 2015 Cynthia Whitlatch. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <MapKit/MapKit.h>
+@import UIKit;
+@import MapKit;
 #import "ViewController.h"
 
 @import CoreLocation;
