@@ -6,14 +6,14 @@
 //  Copyright © 2015 Cynthia Whitlatch. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <MapKit/MapKit.h>
-#import "LocationController.h"
-
+@import UIKit;
 @import CoreLocation;
 @import Parse;
 @import ParseUI;
 @import MapKit;
+
+#import "LocationController.h"
+
 
 @interface ViewController : UIViewController<CLLocationManagerDelegate, MKMapViewDelegate, MKAnnotation, PFLogInViewControllerDelegate>
 

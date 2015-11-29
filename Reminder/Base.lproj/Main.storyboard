@@ -95,17 +95,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmB-Uo-DRI">
-                                <rect key="frame" x="138" y="159" width="324" height="307"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Create a Reminder" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Axz-JK-jXv">
+                                <rect key="frame" x="122" y="163" width="357" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="357" id="hMk-bh-C50"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Radius" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R03-Hy-w3W">
+                                <rect key="frame" x="122" y="223" width="357" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9vr-z7-UGY">
+                                <rect key="frame" x="243" y="280" width="115" height="30"/>
+                                <state key="normal" title="Create Reminder"/>
+                                <connections>
+                                    <action selector="createReminderButtonSelected:" destination="JTA-8D-W1W" eventType="touchUpInside" id="LB5-gW-l91"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="R03-Hy-w3W" firstAttribute="top" secondItem="Axz-JK-jXv" secondAttribute="bottom" constant="30" id="9tZ-av-rjl"/>
+                            <constraint firstItem="R03-Hy-w3W" firstAttribute="leading" secondItem="Axz-JK-jXv" secondAttribute="leading" id="Ihr-af-aLd"/>
+                            <constraint firstItem="Axz-JK-jXv" firstAttribute="top" secondItem="I4s-v4-nWq" secondAttribute="bottom" constant="99" id="KSa-ii-woc"/>
+                            <constraint firstItem="9vr-z7-UGY" firstAttribute="centerX" secondItem="R03-Hy-w3W" secondAttribute="centerX" id="OEY-aR-eAR"/>
+                            <constraint firstItem="9vr-z7-UGY" firstAttribute="top" secondItem="R03-Hy-w3W" secondAttribute="bottom" constant="27" id="XaX-Jc-5lK"/>
+                            <constraint firstItem="R03-Hy-w3W" firstAttribute="trailing" secondItem="Axz-JK-jXv" secondAttribute="trailing" id="vd9-hQ-WmJ"/>
+                            <constraint firstItem="Axz-JK-jXv" firstAttribute="centerX" secondItem="PCQ-OM-eaP" secondAttribute="centerX" id="xCq-5w-e7l"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="annotationLabel" destination="cmB-Uo-DRI" id="aQ6-oL-1Y7"/>
+                        <outlet property="nameTextField" destination="Axz-JK-jXv" id="Cnv-N4-jRJ"/>
+                        <outlet property="radiusTextField" destination="R03-Hy-w3W" id="1tj-d4-QEC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jhz-9H-EW9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -128,7 +152,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mfQ-os-v60" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="305" y="364"/>
+            <point key="canvasLocation" x="453" y="364"/>
         </scene>
     </scenes>
 </document>

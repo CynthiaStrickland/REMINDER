@@ -55,6 +55,7 @@
 		3D7D71281C0522780090A82C /* SignUpFieldBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D7D71171C0522780090A82C /* SignUpFieldBG.png */; };
 		3D7D71291C0522780090A82C /* Twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D7D71181C0522780090A82C /* Twitter.png */; };
 		3D7D712A1C0522780090A82C /* TwitterDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D7D71191C0522780090A82C /* TwitterDown.png */; };
+		3D7D71341C0A948A0090A82C /* Reminder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7D71331C0A948A0090A82C /* Reminder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +134,8 @@
 		3D7D71171C0522780090A82C /* SignUpFieldBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SignUpFieldBG.png; sourceTree = "<group>"; };
 		3D7D71181C0522780090A82C /* Twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twitter.png; sourceTree = "<group>"; };
 		3D7D71191C0522780090A82C /* TwitterDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TwitterDown.png; sourceTree = "<group>"; };
+		3D7D71321C0A94800090A82C /* Reminder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Reminder.h; sourceTree = "<group>"; };
+		3D7D71331C0A948A0090A82C /* Reminder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reminder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +209,8 @@
 		3D7D70511C0397700090A82C /* Reminder */ = {
 			isa = PBXGroup;
 			children = (
+				3D7D71321C0A94800090A82C /* Reminder.h */,
+				3D7D71331C0A948A0090A82C /* Reminder.m */,
 				3D7D70551C0397700090A82C /* AppDelegate.h */,
 				3D7D70561C0397700090A82C /* AppDelegate.m */,
 				3D7D70B31C03CEA40090A82C /* ParseKey.m */,
@@ -474,6 +479,7 @@
 				3D7D70B41C03CEA40090A82C /* ParseKey.m in Sources */,
 				3D7D70FC1C04E0640090A82C /* LocationController.m in Sources */,
 				3D7D708F1C03C9F40090A82C /* DetailViewController.m in Sources */,
+				3D7D71341C0A948A0090A82C /* Reminder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

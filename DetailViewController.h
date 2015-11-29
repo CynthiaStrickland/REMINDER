@@ -6,7 +6,7 @@
 //  Copyright © 2015 Cynthia Whitlatch. All rights reserved.
 //
 
-
+@import Foundation;
 @import UIKit;
 @import MapKit;
 

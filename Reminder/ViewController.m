@@ -5,6 +5,7 @@
 //  Created by Cynthia Whitlatch on 11/23/15.
 //  Copyright © 2015 Cynthia Whitlatch. All rights reserved.
 //
+
 #import "ViewController.h"
 #import "LocationController.h"
 #import "DetailViewController.h"
@@ -22,32 +23,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    MKPointAnnotation *myAnnotation = [[MKPointAnnotation alloc]init];
-    
     self.mapView.delegate = self;
-    
     [self.mapView setDelegate:self];
     [self.mapView setShowsUserLocation:YES];
     [self.mapView.layer setCornerRadius:20.0];
-    
-    
-    PFObject *testObject = [PFObject objectWithClassName:@"Location"];
-    testObject[@"foo"] = @"bar";
-    [testObject saveInBackground];
+    [self login];
+
     
     UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressGesture:)];
     longPressGesture.minimumPressDuration = 1.0;
     [self.mapView addGestureRecognizer:longPressGesture];
     
-    myAnnotation.coordinate = CLLocationCoordinate2DMake(47.606209, -122.332071);
-    [self.mapView addAnnotation:myAnnotation];
+//    myAnnotation.coordinate = CLLocationCoordinate2DMake(47.606209, -122.332071);
+//    [self.mapView addAnnotation:myAnnotation];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [[LocationController sharedController]start];
     [[LocationController sharedController]setDelegate:self];
+    [[[LocationController sharedController]locationManager]startUpdatingLocation];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
