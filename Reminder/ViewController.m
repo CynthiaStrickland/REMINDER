@@ -33,9 +33,7 @@
     UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressGesture:)];
     longPressGesture.minimumPressDuration = 1.0;
     [self.mapView addGestureRecognizer:longPressGesture];
-    
-//    myAnnotation.coordinate = CLLocationCoordinate2DMake(47.606209, -122.332071);
-//    [self.mapView addAnnotation:myAnnotation];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -67,7 +65,6 @@
                 
                 [weakSelf.mapView removeAnnotation:annotationView.annotation];
                 [weakSelf.mapView addOverlay:circle];
-                
                 NSLog(@"%@", [[LocationController sharedController]locationManager]);
                 
             };
