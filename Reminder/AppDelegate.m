@@ -16,29 +16,23 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
-    [self setupParse];
+    // Override point for customization after application launch.
     
-        [Parse enableLocalDatastore];
-        [Parse setApplicationId:@"yB4G0zMrtDZTHJBvmOmWmKK9SW2IwqomKgp6gWe5" clientKey:@"avPsqatN5PUHbQtXJ3rskFQiFzmR6jLN19L8ZcmI"];
-        
-        [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-    [self registerForNotifications];
+    if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound) categories:nil];
+        [application registerUserNotificationSettings:settings];
+    }
+    
+    [Parse enableLocalDatastore];
+    [Parse setApplicationId:@"lu3PXQ1vdExdyZCtsxkTJUDMP1M8zE4JyXPUA2pH" clientKey:@"jBdsobzNREaqo4ptNZ3WxxOXnHwXmZnApvpV1IaO"];
     
     return YES;
 }
-    [[PFUser logInWithUsernameInBackground:@"myname" password:@"mypass" block:^(PFUser *user, NSError *error) {
-            if (user) {
-            } else {
-};
 
-- (void)registerForNotifications {
-    
-    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:<#(UIUserNotificationType)#> categories:UIUserNotificationTypeAlert | UIUserNotificationBadge | 
-                                            ]
-    [[UIApplication sharedApplication]registerForRemoteNotificationsSettings:settings];
+-(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    NSLog(@"local");
 }
 
 @end
+

@@ -30,7 +30,6 @@
     [self.mapView setShowsUserLocation:YES];
     [self.mapView.layer setCornerRadius:20.0];
     
-    [self.login];
     
     PFObject *testObject = [PFObject objectWithClassName:@"Location"];
     testObject[@"foo"] = @"bar";
@@ -66,6 +65,17 @@
             DetailViewController *detailViewController = (DetailViewController *)segue.destinationViewController;
             detailViewController.annotationTitle = annotationView.annotation.title;
             detailViewController.coordinate = annotationView.annotation.coordinate;
+            
+            __weak typeof(self) weakSelf = self;
+            
+            detailViewController.completion = ^(MKCircle *circle) {
+                
+                [weakSelf.mapView removeAnnotation:annotationView.annotation];
+                [weakSelf.mapView addOverlay:circle];
+                
+                NSLog(@"%@", [[LocationController sharedController]locationManager]);
+                
+            };
         }
     }
 }
@@ -88,32 +98,31 @@
     }
 }
 
-- (void)setRegion:(MKCoordinateRegion)region {
+- (void)setRegionForCoordinate:(MKCoordinateRegion)region {
     [self.mapView setRegion:region animated:YES];
 }
 
-#pragma mark - LocationControllerDelegate
+#pragma mark - LocationController
 
 - (void)locationControllerDidUpdateLocation:(CLLocation *)location {
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(location.coordinate, 500.0, 500.0);
-    [self setRegion:region];
+    [self setRegionForCoordinate:MKCoordinateRegionMakeWithDistance(location.coordinate, 500.0, 500.0)];
 }
 
 #pragma mark - MKMapViewDelegate
-     
+
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
     
     if ([annotation isKindOfClass:[MKUserLocation class]]) { return nil; }
+    
+    // Add view.
     MKPinAnnotationView *annotationView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:@"AnnotationView"];
     annotationView.annotation = annotation;
     
     if(!annotationView) {
         annotationView = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"AnnotationView"];
-        annotationView.image = [UIImage imageNamed:@"prince.png"];
-
     }
     
-    annotationView.canShowCallout = YES;
+    annotationView.canShowCallout = true;
     UIButton *rightCallout = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     annotationView.rightCalloutAccessoryView = rightCallout;
     
@@ -179,60 +188,46 @@
     }
 }
 
+-(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+    [self performSegueWithIdentifier:@"DetailViewController" sender:view];
+}
+
+-(MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
+    MKCircleRenderer *circleRenderer = [[MKCircleRenderer alloc] initWithOverlay:overlay];
+    circleRenderer.strokeColor = [UIColor blueColor];
+    circleRenderer.fillColor = [UIColor redColor];
+    circleRenderer.alpha = 0.5;
+    return circleRenderer;
+}
+
 #pragma mark - PARSE
 
-- (void) setUpAdditionalUI {
-    UIBarButtonItem *signoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStylePlain target:self action:@selector(logout)];
-    
+- (void)setupAdditionalUI {
+    UIBarButtonItem *signoutButton = [[UIBarButtonItem alloc]initWithTitle:@"Sign Out" style:UIBarButtonItemStylePlain target:self action:@selector(signout)];
     self.navigationItem.leftBarButtonItem = signoutButton;
 }
 
-- (void) login {
-    
+- (void)login {
     if (![PFUser currentUser]) {
-        PFLogInViewController *loginViewController = [[PFLogInViewController alloc] init];
+        
+        PFLogInViewController *loginViewController = [[PFLogInViewController alloc]init];
         loginViewController.delegate = self;
-//        loginViewController.signUpController.delegate = self;
         
+        [self presentViewController:loginViewController animated:NO completion:nil];
         
-        [self presentViewController:loginViewController animated:YES completion:nil];
-        
-    } else {
-        
-        [self setUpAdditionalUI];
-    }
+    } else { [self setupAdditionalUI]; }
 }
 
-- (void) logout {
-    [PFUser logout];
-    [self login];    
+- (void)signout {
+    [PFUser logOut];
+    [self login];
 }
 
-#pragma mark - PFLoginViewControllerDelegate
+-(void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [self setupAdditionalUI];
+}
 
-- (void)logInViewController:(PFLogInViewController *)loginController didLogInUser:(PFUser *)user {
-    
-        [self dismissViewControllerAnimated:YES completion:nil];
-        [self setUpAdditionalUI];
-    }
-
-- (void)signInViewController:(PFLogInViewController *)loginController didLogInUser:(PFUser *)user {
-    
-        [self dismissViewControllerAnimated:YES completion:nil];
-        [self setUpAdditionalUI];
-    }
 @end
-
-
-
-//- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view
-//calloutAccessoryControlTapped:(UIControl *)control
-//{
-//    MyAnnotation *annotation = view.annotation;
-//    DetailViewController *detail = [[DetailViewController alloc] initWithNibName:nil bundle:nil];
-//    detail.annotationLabel.text = annotation.annotationLabel;
-//
-//    [self.navigationController pushViewController:detail animated:YES];
-//}
 
 

@@ -6,14 +6,16 @@
 //  Copyright © 2015 Cynthia Whitlatch. All rights reserved.
 //
 
-#import "ViewController.h"
-@import MapKit;
+
 @import UIKit;
-@import CoreLocation;
+@import MapKit;
+
+typedef void(^DetailViewControllerCompletion)(MKCircle *circle);
 
 @interface DetailViewController : UIViewController
 
-@property (copy, nonatomic) NSString *annotationTitle;
+@property (copy, nonatomic) DetailViewControllerCompletion completion;
+@property (strong, nonatomic) NSString *annotationTitle;
 @property (nonatomic) CLLocationCoordinate2D coordinate;
 
 @end
